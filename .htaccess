@@ -1,9 +1,14 @@
 # .htaccess for mydomain.org
 
-# 301 REDIRECTION FROM WWW TO NON-WWW
 <IfModule mod_rewrite.c>
-#	RewriteEngine On
-#	RewriteBase /
+	RewriteEngine On
+	RewriteBase /
+
+# 301 REDIRECTION FROM HTTP TO HTTPS - only if HTTPS is supported!
+#	RewriteCond %{HTTPS} off
+#	RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+
+# 301 REDIRECTION FROM WWW TO NON-WWW	
 #	RewriteCond %{HTTP_HOST} ^www.mydomain\.org [NC]
 #	RewriteRule (.*) https://mydomain.org/$1 [R=301,L]
 </IfModule>
@@ -74,7 +79,7 @@
 	Header merge Cache-Control "public, must-revalidate, proxy-revalidate"
 	
 # ADD HEADERS FOR SECURITY
-	# enforce browsers to use HTTPS (max-age: 2 years)
+	# enforce browsers to use HTTPS (max-age: 2 years) - only if HTTPS is supported!
 #	Header set Strict-Transport-Security "max-age=63072000; preload"
 	
 	# disallow the website to be framed
@@ -94,7 +99,7 @@
 	# force browsers to stick to the declared content-type
 	Header set X-Content-Type-Options "nosniff"
 	
-	# public key pins (max-age: 30 days)
+	# public key pins (max-age: 30 days) - only if HTTPS is supported!
 	# If you need help, use the HPKP Hash Generator: https://report-uri.io/home/pkp_hash
 #	Header set Public-Key-Pins "pin-sha256=\"\"; max-age=2592000;"
 

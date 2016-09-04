@@ -3,8 +3,10 @@
 Here helpful .htaccess rules which help to improve website security, performance and SEO are collected.
 
 ## Improve website security
+* Add a SSL certificate. You can get free SSL certificates with [Let's Encrypt](https://letsencrypt.org/) or [SSL For Free](https://www.sslforfree.com/).
+* If HTTPS is supported, redirect HTTP to HTTPS requests.
 * Add security headers X-Frame-Options
-* Add a HSTS and PKP header on HTTPS websites. If you need help, use the [HPKP Hash Generator](https://report-uri.io/home/pkp_hash)
+* If HTTPS is supported, add a HSTS and PKP header. If you need help, use the [HPKP Hash Generator](https://report-uri.io/home/pkp_hash)
 * Add a CSP header. If you need help, use the [CSP Builder](https://report-uri.io/home/generate).
 * Hide Apache and PHP version.
 
