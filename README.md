@@ -2,8 +2,8 @@
 
 Here helpful .htaccess rules which help to improve website security, performance and SEO are collected.
 
-* Found an error? Having ideas to improve this recommendation? Please report [https://github.com/patrickrobrecht/htaccess-rules/issues](the issue).
-* Want to provide an extension? Create a [https://github.com/patrickrobrecht/htaccess-rules/pulls](pull request).
+* Found an error? Having ideas to improve this recommendation? Please report [the issue](https://github.com/patrickrobrecht/htaccess-rules/issues).
+* Want to provide an extension? Create a [pull request](https://github.com/patrickrobrecht/htaccess-rules/pulls).
 
 ## Improve website security
 * Add a SSL certificate. You can get free SSL certificates with [Let's Encrypt](https://letsencrypt.org/) or [SSL For Free](https://www.sslforfree.com/).
