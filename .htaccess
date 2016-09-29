@@ -16,20 +16,21 @@
 # SET MIME TYPES according to file extension
 <IfModule mod_mime.c>
 	AddType application/json .json
-	AddType application/pdf .pdf 
+	AddType application/pdf .pdf
 	AddType application/zip .zip
 	AddType audio/ogg .ogg
-	AddType image/jpeg .jpeg .jpg .jpe .JPG	
+	AddType image/jpeg .jpeg .jpg .JPG
 	AddType image/gif .gif .GIF
-	AddType image/png .png
-	AddType video/ogg .ogv .ogg
-	AddType video/mp4 .mp4
-	AddType video/webm .webm
+	AddType image/png .png .PNG
+	AddType text/css .css
 	AddType text/csv .csv
 	AddType text/html .html .htm .php
 	AddType text/javascript	.js
 	AddType text/plain .txt
 	AddType text/xml .xml
+	AddType video/ogg .ogv .ogg
+	AddType video/mp4 .mp4
+	AddType video/webm .webm
 </IfModule>
 	
 # ADD EXPIRES HEADERS
@@ -93,7 +94,7 @@
 	# Content-Security-Policy-Report-Only can be used for testing - Firefox and Chrome report errors on the console
 	Header set Content-Security-Policy-Report-Only "default-src 'self'"
 
-	# Warning only enable after testing!
+	# Warning only enable after testing with Report-Only!
 #	Header set Content-Security-Policy "default-src 'self'"
 	
 	# force browsers to stick to the declared content-type
@@ -103,7 +104,7 @@
 	# If you need help, use the HPKP Hash Generator: https://report-uri.io/home/pkp_hash
 #	Header set Public-Key-Pins "pin-sha256=\"\"; max-age=2592000;"
 
-# REMOVE HEADERS FOR SECURITY	
+# REMOVE HEADERS FOR SECURITY
 	# Remove sever information (this does not always work)
 	Header set Server ""
 	Header always unset Server
@@ -117,6 +118,10 @@
 	Header always unset WP-Super-Cache
 </IfModule>
 
+# DISABLE THE SERVER SIGNATURE
+	ServerSignature Off
+
+	
 # ENABLE GZIP COMPRESSION
 <IfModule mod_deflate.c>
 	SetOutputFilter DEFLATE
@@ -124,12 +129,10 @@
 </IfModule>
 
 
-# DISABLE THE SERVER SIGNATURE
-	ServerSignature Off
-
 # PROVIDE CUSTOM ERROR DOCUMENTS
+	# Before activating, ensure that those documents exist!
 # ErrorDocument 400 /badrequest.html
 # ErrorDocument 401 /authreqd.html
 # ErrorDocument 403 /forbid.html
 # ErrorDocument 404 /notfound.html
-# ErrorDocument 500 /serverr.html
+# ErrorDocument 500 /server.html
