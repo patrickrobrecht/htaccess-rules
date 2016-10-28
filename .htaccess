@@ -94,7 +94,7 @@
 	# Content-Security-Policy-Report-Only can be used for testing - Firefox and Chrome report errors on the console
 	Header set Content-Security-Policy-Report-Only "default-src 'self'"
 
-	# Warning only enable after testing with Report-Only!
+	# Warning: only enable after testing with Report-Only!
 #	Header set Content-Security-Policy "default-src 'self'"
 	
 	# force browsers to stick to the declared content-type
@@ -102,10 +102,11 @@
 	
 	# public key pins (max-age: 30 days) - only if HTTPS is supported!
 	# If you need help, use the HPKP Hash Generator: https://report-uri.io/home/pkp_hash
+	# Care about the expiration date: https://www.smashingmagazine.com/be-afraid-of-public-key-pinning/
 #	Header set Public-Key-Pins "pin-sha256=\"\"; max-age=2592000;"
 
 # REMOVE HEADERS FOR SECURITY
-	# Remove sever information (this does not always work)
+	# Remove server information (this does not always work)
 	Header set Server ""
 	Header always unset Server
 	
